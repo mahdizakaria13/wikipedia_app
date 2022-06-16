@@ -2,6 +2,7 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
         android:title="Be a writer"
+        android:checkable="true"
         android:icon="@drawable/ic_writer"
         android:id="@+id/menu_writer" />
     <item
@@ -16,15 +17,18 @@
         android:id="@+id/menu_video_maker" />
     <item
         android:title="Be a translator"
+        android:checkable="true"
         android:icon="@drawable/ic_translate"
         android:id="@+id/menu_translate" />
     <item android:title="our websiter">
         <menu>
             <item
                 android:title="Visit wikipedia"
+                android:checkable="true"
                 android:icon="@drawable/ic_wikipedia"
                 android:id="@+id/menu_wikipedia" />
             <item
+                android:checkable="true"
                 android:title="Visit wikimedia"
                 android:icon="@drawable/ic_wikimedia"
                 android:id="@+id/menu_wikimedia" />

@@ -6,4 +6,6 @@
     <color name="blue_dark">#0483BC</color>
     <color name="purple_light">#BB39D1</color>
     <color name="purple_dark">#9700B1</color>
+    <color name="gray_light">#D6D6D6</color>
+    <color name="black_light">#C1000000</color>
 </resources>

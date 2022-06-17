@@ -1,4 +1,4 @@
-package ir.marko.wikipedia
+package ir.marko.wikipedia.activities
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -6,8 +6,8 @@ import android.widget.Toast
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.core.view.GravityCompat
 import androidx.fragment.app.Fragment
+import ir.marko.wikipedia.R
 import ir.marko.wikipedia.databinding.ActivityMainBinding
-import ir.marko.wikipedia.databinding.FragmentExploreBinding
 import ir.marko.wikipedia.fragments.FragmentExplore
 import ir.marko.wikipedia.fragments.FragmentProfile
 import ir.marko.wikipedia.fragments.FragmentTrend

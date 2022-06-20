@@ -24,11 +24,7 @@ class FragmentTrend : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        val dataTrend = arrayListOf<ItemInfo>(
-
-
-            // Trend Section =>
-
+        val dataTrend = arrayListOf(
             ItemInfo(
                 "https://dunijet.ir/YaghootAndroidFiles/Wikipedia/john.jpg",
                 "John Madden",
@@ -160,5 +156,6 @@ class FragmentTrend : Fragment() {
         binding.recyclerTrend.adapter = myAdapter
         binding.recyclerTrend.layoutManager =
             LinearLayoutManager(context, RecyclerView.VERTICAL, false)
+
     }
 }

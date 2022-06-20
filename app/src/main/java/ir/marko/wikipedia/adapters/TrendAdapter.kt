@@ -18,13 +18,14 @@ class TrendAdapter(private val data: ArrayList<ItemInfo>) :
         fun bindData(position: Int) {
             Glide.with(itemView.context)
                 .load(data[position].imgUrl)
-                .transform(RoundedCornersTransformation(6, 0))
+                .transform(RoundedCornersTransformation(8, 4))
                 .into(binding.imgTrend)
             binding.txtNumOFTrend.text = data[position].numOfTrend
             binding.txtTitleTrend.text = data[position].txtTitle
             binding.txtInfoTrend.text = data[position].txtSubtitle
             binding.txtTrendNumber.text = (adapterPosition + 1).toString()
         }
+
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TrendHolder {

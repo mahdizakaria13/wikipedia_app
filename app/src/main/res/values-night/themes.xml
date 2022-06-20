@@ -21,5 +21,4 @@
         <item name="android:textSize">22sp</item>
         <item name="fontFamily">@font/primary_bold</item>
     </style>
-
 </resources>

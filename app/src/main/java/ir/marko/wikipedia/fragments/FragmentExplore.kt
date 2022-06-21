@@ -2,19 +2,20 @@ package ir.marko.wikipedia.fragments
 
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import ir.marko.wikipedia.activities.SecondActivity
+import ir.marko.wikipedia.activities.DetailActivity
 import ir.marko.wikipedia.adapters.ExploreAdapter
 import ir.marko.wikipedia.data.ItemInfo
 import ir.marko.wikipedia.databinding.FragmentExploreBinding
+import ir.marko.wikipedia.interfaces.ItemEvents
 
-class FragmentExplore : Fragment() , ExploreAdapter.SendDataActivitySecond {
+const val SEND_DATA_TO_DETAIL_ACTIVITY = "sendData"
+class FragmentExplore : Fragment()  , ItemEvents{
     lateinit var binding: FragmentExploreBinding
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -26,7 +27,18 @@ class FragmentExplore : Fragment() , ExploreAdapter.SendDataActivitySecond {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        setAdapter()
+    }
 
+    override fun itemClicked(itemInfo: ItemInfo) {
+        val intent = Intent(activity , DetailActivity::class.java)
+        intent.putExtra(SEND_DATA_TO_DETAIL_ACTIVITY , itemInfo)
+        startActivity(intent)
+    }
+
+
+
+    private fun setAdapter(){
         val data = listOf(
             ItemInfo(
                 "https://dunijet.ir/YaghootAndroidFiles/Wikipedia/jamiroquai.jpg",
@@ -116,18 +128,10 @@ class FragmentExplore : Fragment() , ExploreAdapter.SendDataActivitySecond {
             )
 
         )
-        val myAdapter = ExploreAdapter(data , this)
+        val myAdapter = ExploreAdapter(data , this )
         binding.recyclerExplore.adapter = myAdapter
         binding.recyclerExplore.layoutManager =
             LinearLayoutManager(context, RecyclerView.VERTICAL, false)
     }
 
-    override fun onClick(imgUrl: String, txtTitle: String, txtDetail: String) {
-        val intent = Intent(context , SecondActivity::class.java)
-        intent.putExtra("SEND_IMAGE_URL" , imgUrl)
-        intent.putExtra("SEND_TEXT_TITLE" , txtTitle)
-        intent.putExtra("SEND_TEXT_DETAIL" , txtDetail)
-        startActivity(intent)
-
-    }
 }

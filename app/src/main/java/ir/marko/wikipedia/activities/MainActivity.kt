@@ -19,6 +19,11 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        defaultSetup()
+        firstRun()
+        navigationEvents()
+    }
+    private fun defaultSetup(){
         setSupportActionBar(binding.toolBarMain)
         val actionBarDrawerToggle = ActionBarDrawerToggle(
             this,
@@ -29,7 +34,17 @@ class MainActivity : AppCompatActivity() {
         )
         binding.drawerLayoutMain.addDrawerListener(actionBarDrawerToggle)
         actionBarDrawerToggle.syncState()
-        firstRun()
+    }
+    private fun replaceFragment(fragment: Fragment) {
+        val transaction = supportFragmentManager.beginTransaction()
+        transaction.replace(R.id.frame_container_fragment, fragment)
+        transaction.commit()
+    }
+     private fun firstRun() {
+       binding.bottomNavigationMain.selectedItemId = R.id.menu_explore
+        replaceFragment(FragmentExplore())
+    }
+    private fun navigationEvents(){
         binding.navigationViewMain.setNavigationItemSelectedListener {
             when (it.itemId) {
                 R.id.menu_writer -> {
@@ -74,16 +89,5 @@ class MainActivity : AppCompatActivity() {
             true
         }
         binding.bottomNavigationMain.setOnItemReselectedListener { }
-    }
-
-    private fun replaceFragment(fragment: Fragment) {
-        val transaction = supportFragmentManager.beginTransaction()
-        transaction.replace(R.id.frame_container_fragment, fragment)
-        transaction.commit()
-    }
-
-     fun firstRun() {
-       binding.bottomNavigationMain.selectedItemId = R.id.menu_explore
-        replaceFragment(FragmentExplore())
     }
 }

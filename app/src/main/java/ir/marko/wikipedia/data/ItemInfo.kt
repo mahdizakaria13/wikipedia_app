@@ -1,5 +1,10 @@
 package ir.marko.wikipedia.data
 
+
+import android.os.Parcelable
+import kotlinx.parcelize.Parcelize
+
+@Parcelize
 data class ItemInfo(
     val imgUrl :String ,
     val txtTitle :String ,
@@ -7,4 +12,4 @@ data class ItemInfo(
     val txtInfo :String ,
     val isTrends :Boolean ,
     val numOfTrend :String
-)
+):Parcelable

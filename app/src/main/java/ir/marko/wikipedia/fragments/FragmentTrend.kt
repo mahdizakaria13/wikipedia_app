@@ -1,5 +1,6 @@
 package ir.marko.wikipedia.fragments
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -7,12 +8,14 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import ir.marko.wikipedia.activities.DetailActivity
 import ir.marko.wikipedia.adapters.TrendAdapter
 import ir.marko.wikipedia.data.ItemInfo
 import ir.marko.wikipedia.databinding.FragmentExploreBinding
 import ir.marko.wikipedia.databinding.FragmentTrendBinding
+import ir.marko.wikipedia.interfaces.ItemEvents
 
-class FragmentTrend : Fragment() {
+class FragmentTrend : Fragment() , ItemEvents {
     lateinit var binding: FragmentTrendBinding
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -24,6 +27,10 @@ class FragmentTrend : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+       setAdapter()
+
+    }
+    private fun setAdapter(){
         val dataTrend = arrayListOf(
             ItemInfo(
                 "https://dunijet.ir/YaghootAndroidFiles/Wikipedia/john.jpg",
@@ -152,10 +159,15 @@ class FragmentTrend : Fragment() {
             )
 
         )
-        val myAdapter = TrendAdapter(dataTrend.clone() as ArrayList<ItemInfo>)
+        val myAdapter = TrendAdapter(dataTrend.clone() as ArrayList<ItemInfo> , this)
         binding.recyclerTrend.adapter = myAdapter
         binding.recyclerTrend.layoutManager =
             LinearLayoutManager(context, RecyclerView.VERTICAL, false)
+    }
 
+    override fun itemClicked(itemInfo: ItemInfo) {
+        val intent = Intent(activity , DetailActivity::class.java)
+        intent.putExtra(SEND_DATA_TO_DETAIL_ACTIVITY , itemInfo)
+        startActivity(intent)
     }
 }

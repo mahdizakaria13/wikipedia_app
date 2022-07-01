@@ -17,6 +17,7 @@ import androidx.core.view.get
 import androidx.fragment.app.Fragment
 import cn.pedant.SweetAlert.SweetAlertDialog
 import com.google.android.material.snackbar.Snackbar
+import ir.dunijet.animation.ext.BaseActivity
 import ir.marko.wikipedia.R
 import ir.marko.wikipedia.databinding.ActivityMainBinding
 import ir.marko.wikipedia.fragments.FragmentExplore
@@ -25,7 +26,7 @@ import ir.marko.wikipedia.fragments.FragmentTrend
 import ir.marko.wikipedia.fragments.FragmentWriter
 
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : BaseActivity() {
     lateinit var binding: ActivityMainBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

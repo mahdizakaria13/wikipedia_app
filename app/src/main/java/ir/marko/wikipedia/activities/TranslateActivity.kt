@@ -1,15 +1,16 @@
 package ir.marko.wikipedia.activities
 
-import androidx.appcompat.app.AppCompatActivity
+
 import android.os.Bundle
 import android.view.MenuItem
 import com.bumptech.glide.Glide
+import ir.dunijet.animation.ext.BaseActivity
 import ir.marko.wikipedia.R
-import ir.marko.wikipedia.databinding.ActivityMainBinding
+
 import ir.marko.wikipedia.databinding.ActivityTranslateBinding
 import jp.wasabeef.glide.transformations.RoundedCornersTransformation
 
-class TranslateActivity : AppCompatActivity() {
+class TranslateActivity : BaseActivity() {
     lateinit var binding: ActivityTranslateBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

@@ -1,18 +1,19 @@
 package ir.marko.wikipedia.activities
 
-import android.app.Notification
+
 import android.content.Intent
 import android.net.Uri
-import androidx.appcompat.app.AppCompatActivity
+
 import android.os.Bundle
 import android.view.MenuItem
 import androidx.core.content.ContextCompat
 import com.bumptech.glide.Glide
+import ir.dunijet.animation.ext.BaseActivity
 import ir.marko.wikipedia.data.ItemInfo
 import ir.marko.wikipedia.databinding.ActivityDetailBinding
 import ir.marko.wikipedia.fragments.SEND_DATA_TO_DETAIL_ACTIVITY
 
-class DetailActivity : AppCompatActivity() {
+class DetailActivity : BaseActivity() {
     lateinit var binding: ActivityDetailBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -20,7 +21,7 @@ class DetailActivity : AppCompatActivity() {
         setContentView(binding.root)
         defaultSetup()
         val dataReceived = intent.getParcelableExtra<ItemInfo>(SEND_DATA_TO_DETAIL_ACTIVITY)
-        if (dataReceived != null){
+        if (dataReceived != null) {
             getData(dataReceived)
         }
     }
@@ -32,7 +33,7 @@ class DetailActivity : AppCompatActivity() {
         return true
     }
 
-    private fun getData(item :ItemInfo) {
+    private fun getData(item: ItemInfo) {
         binding.txtTitleDetail.text = item.txtTitle
         binding.txtSubTitleDetail.text = item.txtSubtitle
         binding.txtInfoDetail.text = item.txtInfo
@@ -41,7 +42,7 @@ class DetailActivity : AppCompatActivity() {
             .into(binding.imgSecond)
         binding.fabDetail.setOnClickListener {
             val uriImage = Uri.parse("https://en.wikipedia.org/wiki/${item.txtTitle}")
-            val intent = Intent(Intent.ACTION_VIEW  , uriImage)
+            val intent = Intent(Intent.ACTION_VIEW, uriImage)
             startActivity(intent)
         }
     }

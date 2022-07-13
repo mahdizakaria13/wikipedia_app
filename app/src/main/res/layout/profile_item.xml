@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <com.google.android.material.card.MaterialCardView
     android:layout_margin="4dp"
-    app:cardElevation="8dp"
+    style="@style/Widget.Material3.CardView.Outlined"
     app:cardCornerRadius="8dp"
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="150dp"

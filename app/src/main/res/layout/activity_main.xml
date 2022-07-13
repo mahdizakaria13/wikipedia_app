@@ -17,28 +17,31 @@
             android:layout_height="wrap_content">
 
             <androidx.appcompat.widget.Toolbar
-                app:layout_scrollFlags="scroll|enterAlways"
                 android:id="@+id/toolBarMain"
                 android:layout_width="match_parent"
                 android:layout_height="56dp"
                 android:background="?attr/colorPrimary"
                 android:theme="@style/ToolBar_Theme"
+                app:layout_scrollFlags="scroll|enterAlways"
                 app:titleTextAppearance="@style/ToolBar_Theme" />
         </com.google.android.material.appbar.AppBarLayout>
 
         <FrameLayout
-            android:layout_marginBottom="56dp"
             android:id="@+id/frame_container_fragment"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_marginBottom="56dp"
             app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior" />
-        <com.google.android.material.bottomnavigation.BottomNavigationView
-            style="@style/Widget.MaterialComponents.BottomNavigationView.Colored"
+
+        <com.ismaeldivita.chipnavigation.ChipNavigationBar
             android:id="@+id/bottomNavigationMain"
             android:layout_width="match_parent"
             android:layout_height="56dp"
             android:layout_gravity="bottom"
-            app:menu="@menu/menu_bottom_navigation" />
+            android:background="?attr/colorPrimary"
+            app:cnb_menuResource="@menu/menu_bottom_navigation"
+            app:cnb_unselectedColor="@color/white" />
+
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
     <com.google.android.material.navigation.NavigationView

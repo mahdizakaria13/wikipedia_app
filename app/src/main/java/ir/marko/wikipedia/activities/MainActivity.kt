@@ -17,6 +17,7 @@ import androidx.core.view.get
 import androidx.fragment.app.Fragment
 import cn.pedant.SweetAlert.SweetAlertDialog
 import com.google.android.material.snackbar.Snackbar
+import com.ismaeldivita.chipnavigation.ChipNavigationBar
 import ir.dunijet.animation.ext.BaseActivity
 import ir.marko.wikipedia.R
 import ir.marko.wikipedia.databinding.ActivityMainBinding
@@ -79,7 +80,7 @@ class MainActivity : BaseActivity() {
     }
 
     private fun firstRun() {
-        binding.bottomNavigationMain.selectedItemId = R.id.menu_explore
+        binding.bottomNavigationMain.setItemSelected(R.id.menu_explore , true)
         replaceFragment(FragmentExplore())
     }
 
@@ -126,7 +127,7 @@ class MainActivity : BaseActivity() {
             true
         }
         binding.bottomNavigationMain.setOnItemSelectedListener {
-            when (it.itemId) {
+            when (it) {
                 R.id.menu_explore -> {
                     replaceFragment(FragmentExplore())
                 }
@@ -139,8 +140,6 @@ class MainActivity : BaseActivity() {
             }
             binding.navigationViewMain.menu.getItem(0).isChecked = false
             binding.navigationViewMain.menu.getItem(3).isChecked = false
-            true
         }
-        binding.bottomNavigationMain.setOnItemReselectedListener { }
     }
 }

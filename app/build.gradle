@@ -11,7 +11,7 @@ android {
     }
     defaultConfig {
         applicationId "ir.marko.wikipedia"
-        minSdk 21
+        minSdk 23
         targetSdk 31
         versionCode 1
         versionName "1.0"
@@ -51,5 +51,7 @@ dependencies {
     implementation 'jp.wasabeef:glide-transformations:4.3.0'
     //circle image view
     implementation 'de.hdodenhof:circleimageview:3.1.0'
+    //chip navigation bar
+    implementation 'com.github.ismaeldivita:chip-navigation-bar:1.4.0'
 
 }
